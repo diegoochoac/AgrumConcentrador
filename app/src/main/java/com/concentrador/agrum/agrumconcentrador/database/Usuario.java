@@ -31,7 +31,7 @@ public class Usuario implements Serializable {
 
     public Usuario(String name,
                    String specialty, String phoneNumber,
-                   String bio, String avatarUri) {
+                   String avatarUri) {
 
         this.name = name;
         this.specialty = specialty;
