@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AgrumConcentrador</string>
+    <string name="usuario">Usuario</string>
+    <string name="seccion_1">Sección 1</string>
+    <string name="seccion_2">Sección 2</string>
+    <string name="seccion_3">Sección 3</string>
+
+    <string name="otras_opciones">Otras opciones</string>
+    <string name="opcion_1">Opción 1</string>
+    <string name="opcion_2">Opción 2</string>
+
+    <string name="fragment1">Fragment 1 Menu</string>
+    <string name="fragment2">Fragment 2 Menu</string>
+    <string name="fragment3">Fragment 3 Menu</string>
+
+
+</resources>
