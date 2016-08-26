@@ -13,6 +13,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.types.StringBytesType;
+import com.j256.ormlite.stmt.query.In;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -29,6 +30,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private Dao<Trabajo,Integer> trabajoDao = null;
     private RuntimeExceptionDao<Trabajo, Integer> trabajoRuntimeDao = null;
+
+    private Dao<Terreno,Integer> terenoDao = null;
+    private RuntimeExceptionDao<Terreno, Integer> terrenoRuntimeDao = null;
 
 
     public DatabaseHelper(Context context) {
@@ -47,12 +51,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getSimpleName(), "onCreate()");
             TableUtils.createTable(source,Usuario.class);
             TableUtils.createTable(source,Trabajo.class);
+            TableUtils.createTable(source,Terreno.class);
         }catch (SQLException ex) {
             Log.e(DatabaseHelper.class.getSimpleName(),"Imposible crear base de datos",ex);
             throw  new RuntimeException(ex);
         }
-
-
     }
 
     /**
@@ -69,6 +72,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getSimpleName(), "onUpgrade()");
             TableUtils.dropTable(source,Usuario.class, true);
             TableUtils.dropTable(source,Trabajo.class, true);
+            TableUtils.dropTable(source,Terreno.class, true);
             onCreate(db, source);
         } catch (SQLException ex) {
             Log.e(DatabaseHelper.class.getSimpleName(),"Imposible actualizar base de datos",ex);
@@ -98,8 +102,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         if(usuarioRuntimeDao==null) usuarioRuntimeDao = getRuntimeExceptionDao(Usuario.class);
         return usuarioRuntimeDao;
     }
-    //</editor-fold>
-
 
     public Dao<Trabajo, Integer> getTrabajoDao() throws SQLException {
         if(trabajoDao==null)trabajoDao = getDao(Trabajo.class);
@@ -111,15 +113,31 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return trabajoRuntimeDao;
     }
 
+    public Dao<Terreno, Integer> getTerenoDao() throws SQLException {
+        if(terenoDao==null)terenoDao = getDao(Terreno.class);
+        return terenoDao;
+    }
+
+    public RuntimeExceptionDao<Terreno, Integer> getTerrenoRuntimeDao() {
+        if(terrenoRuntimeDao==null) terrenoRuntimeDao = getRuntimeExceptionDao(Terreno.class);
+        return terrenoRuntimeDao;
+    }
+
+    //</editor-fold>
+
+
     /**
      * Cierra las conexiones a la base de datos
      */
     @Override
     public void close(){
         super.close();
-        usuarioDao=null;
-        usuarioRuntimeDao=null;
-        trabajoDao=null;
-        trabajoRuntimeDao=null;
+
+        usuarioDao = null;
+        usuarioRuntimeDao = null;
+        trabajoDao = null;
+        trabajoRuntimeDao = null;
+        terenoDao = null;
+        terrenoRuntimeDao = null;
     }
 }
