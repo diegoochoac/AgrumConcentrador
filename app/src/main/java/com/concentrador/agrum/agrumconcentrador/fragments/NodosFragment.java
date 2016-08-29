@@ -5,13 +5,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 
 import com.concentrador.agrum.agrumconcentrador.R;
 
-public class TabFragment2 extends Fragment {
+public class NodosFragment extends Fragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tab_fragment_2, container, false);
+        View rootview = inflater.inflate(R.layout.nodos_fragment, container, false);
+        inicializarComponentes(rootview);
+        return rootview;
+    }
+
+    private void inicializarComponentes(final View view) {
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

@@ -2,4 +2,18 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="texSizeNodoFragment">20dp</dimen>
+    <dimen name="textSizeBigNodoFragment">40dp</dimen>
+
+    <dimen name="textSizeRegistroFragment">20dp</dimen>
+    <dimen name="textSizeBigRegistroFragmnet">40dp</dimen>
+
+    <dimen name="textSizeGPSFragment">20dp</dimen>
+
+    <dimen name="textSizeParametrosFragment">20dp</dimen>
+
+
+
 </resources>

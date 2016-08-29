@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         //Layout que carga los tabs fragment
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,6 +47,8 @@ public class MainActivity extends AppCompatActivity{
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab1));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab2));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab3));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab4));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab5));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -120,6 +120,9 @@ public class MainActivity extends AppCompatActivity{
                 });
         //</editor-fold>
     }
+
+
+
 
 
     //<editor-fold desc="Menu Normal">

@@ -17,14 +17,22 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                TabFragment1 tab1 = new TabFragment1();
-                return tab1;
+                ParametrosFragment parametrostab = new ParametrosFragment();
+                return parametrostab;
             case 1:
-                TabFragment2 tab2 = new TabFragment2();
-                return tab2;
+                ParametrosMaquina parametrosmaquinatab = new ParametrosMaquina();
+                return parametrosmaquinatab;
             case 2:
-                TabFragment3 tab3 = new TabFragment3();
-                return tab3;
+                NodosFragment nodostab = new NodosFragment();
+                return nodostab;
+            case 3:
+                GPSFragment gpstab= new GPSFragment();
+                return gpstab;
+
+            case 4:
+                RegistroFragment registrotab = new RegistroFragment();
+                return registrotab;
+
             default:
                 return null;
         }
