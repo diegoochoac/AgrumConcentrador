@@ -8,14 +8,14 @@ import java.io.Serializable;
 /**
  * Created by diego on 26/08/16.
  */
-@DatabaseTable(tableName = "usuario")
+//@DatabaseTable(tableName = "usuario")
 public class Usuario implements Serializable {
 
-    @DatabaseField(generatedId = true)
-    private String id;
+    @DatabaseField(generatedId = true, columnName = "usuario_id")
+    private int usuarioId;
 
-    @DatabaseField(index = true, canBeNull = false)
-    private String name;
+    @DatabaseField(columnName = "usuario_name")
+    private String usuarioName;
 
     @DatabaseField
     private String specialty;
@@ -29,80 +29,55 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String name,
-                   String specialty, String phoneNumber,
-                   String avatarUri) {
+    public Usuario(final String name,
+                   final String specialty, final String phoneNumber,
+                   final String avatarUri) {
 
-        this.name = name;
+        this.usuarioName = name;
         this.specialty = specialty;
         this.phoneNumber = phoneNumber;
         this.avatarUri = avatarUri;
     }
 
-    //<editor-fold desc="Metodos Get">
-    public String getId() {
-        return id;
+    //<editor-fold desc="Metodos Get-Set">
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
-    public String getName() {
-        return name;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getUsuarioName() {
+        return usuarioName;
+    }
+
+    public void setUsuarioName(String usuarioName) {
+        this.usuarioName = usuarioName;
     }
 
     public String getSpecialty() {
         return specialty;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getAvatarUri() {
-        return avatarUri;
-    }
-    //</editor-fold>
-
-    //<editor-fold desc="Metodos Set">
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getAvatarUri() {
+        return avatarUri;
+    }
+
     public void setAvatarUri(String avatarUri) {
         this.avatarUri = avatarUri;
-    }
-    //</editor-fold>
-
-    //<editor-fold desc="Metodos Equals hashCOde">
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Usuario usuario = (Usuario) o;
-
-        if (!name.equals(usuario.name)) return false;
-        if (specialty != null ? !specialty.equals(usuario.specialty) : usuario.specialty != null)
-            return false;
-        if (phoneNumber != null ? !phoneNumber.equals(usuario.phoneNumber) : usuario.phoneNumber != null)
-            return false;
-        return avatarUri != null ? avatarUri.equals(usuario.avatarUri) : usuario.avatarUri == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (specialty != null ? specialty.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (avatarUri != null ? avatarUri.hashCode() : 0);
-        return result;
     }
     //</editor-fold>
 }

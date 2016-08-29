@@ -18,7 +18,9 @@ import android.view.MenuItem;
 import com.concentrador.agrum.agrumconcentrador.fragments.PagerAdapter;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+
+    //AppCompatActivity
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         //Layout que carga los tabs fragment
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter
-                (getSupportFragmentManager(), tabLayout.getTabCount());
+
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -69,9 +73,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         navView = (NavigationView)findViewById(R.id.navview);
+        //<editor-fold desc="setNavigationItemSelectedListener">
         navView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -115,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+        //</editor-fold>
     }
-
 
 
     //<editor-fold desc="Menu Normal">
@@ -141,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    //</editor-fold>
+
+        //</editor-fold>
 
 }

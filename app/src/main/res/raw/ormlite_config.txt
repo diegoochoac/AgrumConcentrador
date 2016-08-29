@@ -1,18 +1,48 @@
 #
-# generated on 2016/08/26 08:45:50
+# generated on 2016/08/27 01:59:38
 #
+# --table-start--
+dataClass=com.concentrador.agrum.agrumconcentrador.database.Terreno
+tableName=terreno
+# --table-fields-start--
+# --field-start--
+fieldName=terrenoId
+columnName=terreno_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=Cod
+# --field-end--
+# --field-start--
+fieldName=Hacienda
+# --field-end--
+# --field-start--
+fieldName=Ste
+# --field-end--
+# --field-start--
+fieldName=Variedad
+# --field-end--
+# --field-start--
+fieldName=ZonaAdmi
+# --field-end--
+# --field-start--
+fieldName=Area
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
 # --table-start--
 dataClass=com.concentrador.agrum.agrumconcentrador.database.Usuario
 tableName=usuario
 # --table-fields-start--
 # --field-start--
-fieldName=id
+fieldName=usuarioId
+columnName=usuario_id
 generatedId=true
 # --field-end--
 # --field-start--
-fieldName=name
-canBeNull=false
-indexName=usuario_name_idx
+fieldName=usuarioName
+columnName=usuario_name
 # --field-end--
 # --field-start--
 fieldName=specialty
@@ -31,13 +61,12 @@ dataClass=com.concentrador.agrum.agrumconcentrador.database.Trabajo
 tableName=trabajo
 # --table-fields-start--
 # --field-start--
-fieldName=id
+fieldName=trabajoId
+columnName=trabajo_id
 generatedId=true
 # --field-end--
 # --field-start--
-fieldName=name
-canBeNull=false
-indexName=trabajo_name_idx
+fieldName=trabajoName
 # --field-end--
 # --table-fields-end--
 # --table-end--

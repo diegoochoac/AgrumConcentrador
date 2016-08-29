@@ -2,25 +2,30 @@ package com.concentrador.agrum.agrumconcentrador.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
 
 import com.concentrador.agrum.agrumconcentrador.R;
+import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
 import com.concentrador.agrum.agrumconcentrador.database.Usuario;
-import com.concentrador.agrum.agrumconcentrador.database.UsuarioReceiver;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
+
+import java.sql.SQLException;
 
 public class MenuFragment1 extends Fragment implements OnClickListener {
+
+    private DatabaseHelper databaseHelper = null;
 
     private EditText nombre, telefono, labor;
     private ImageView foto;
@@ -38,6 +43,22 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
         View rootview = inflater.inflate(R.layout.menu_fragment1, container, false);
         inicializarComponentes(rootview);
         return rootview;
+    }
+
+    protected DatabaseHelper getHelper() {
+        if (databaseHelper == null) {
+            databaseHelper = OpenHelperManager.getHelper(getActivity(), DatabaseHelper.class);
+        }
+        return databaseHelper;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (databaseHelper != null) {
+            OpenHelperManager.releaseHelper();
+            databaseHelper = null;
+        }
     }
 
     private void inicializarComponentes(final View view) {
@@ -85,10 +106,14 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
 
     public void agregarUsuario(String name,String specialty, String phoneNumber, String avatarUri){
         Usuario usuario = new Usuario(name, specialty,phoneNumber,avatarUri);
-        Intent intent = new Intent("listacontactos");
-        intent.putExtra("operacion", UsuarioReceiver.USUARIO_AGREGADO);
-        intent.putExtra("datos",usuario);
-        getActivity().sendBroadcast(intent);
+        try {
+            // Now, need to interact with StudentDetails table/object, so initialize DAO for that
+            final Dao<Usuario, Integer> studentDao = getHelper().getUsuarioDao();
+            studentDao.create(usuario);
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void limpiarCampos(){
@@ -106,4 +131,9 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
             foto.setTag(data.getData());
         }
     }
+
+
+
+
+
 }

@@ -1,0 +1,40 @@
+<RelativeLayout
+    android:id="@+id/relativelay"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:id="@+id/Username"
+            android:text="Nombre"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+
+        </TextView>
+
+        <TextView android:id="@+id/Userphone"
+            android:text="Telefono"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+
+        </TextView>
+
+        <TextView android:id="@+id/Userlabor"
+            android:text="Labor"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

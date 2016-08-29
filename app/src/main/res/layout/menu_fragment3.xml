@@ -1,9 +1,49 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MenuFragment1">
+    tools:context=".fragments.MenuFragment3">
 
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/fragment3" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|top">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="Terrenos"
+                android:id="@+id/btnTerreno"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="Usuarios"
+                android:id="@+id/btnUsuarios"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/listViewfragment"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp">
+        </ListView>
+
+    </LinearLayout>
 
 </FrameLayout>

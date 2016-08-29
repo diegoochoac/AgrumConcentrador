@@ -1,8 +1,8 @@
 package com.concentrador.agrum.agrumconcentrador;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
@@ -10,9 +10,9 @@ import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment1;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment2;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment3;
 
-public class NavigationViewActivity extends AppCompatActivity {
+public class NavigationViewActivity extends AppCompatActivity{
 
-
+    //AppCompatActivity
     private Toolbar appbar;
 
     @Override
@@ -24,7 +24,6 @@ public class NavigationViewActivity extends AppCompatActivity {
         setSupportActionBar(appbar);
 
         String fragment_receiver = getIntent().getExtras().getString("Fragment");
-
         boolean fragmentTransaction = false;
         Fragment fragment = null;
 
@@ -44,9 +43,7 @@ public class NavigationViewActivity extends AppCompatActivity {
         }
 
         if(fragmentTransaction) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content_frame, fragment)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
         }
     }
 
@@ -61,4 +58,5 @@ public class NavigationViewActivity extends AppCompatActivity {
         super.onStop();
         this.finish();
     }
+
 }
