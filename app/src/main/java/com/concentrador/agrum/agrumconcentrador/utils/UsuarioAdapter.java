@@ -46,14 +46,19 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario> {
 
         Usuario obj = list.get(position);
 
-        holder.name = (TextView)view.findViewById(R.id.Username);
-        holder.phone = (TextView)view.findViewById(R.id.Userphone);
-        holder.labor = (TextView)view.findViewById(R.id.Userlabor);
+        holder.name = (TextView)view.findViewById(R.id.campo1);
+        holder.phone = (TextView)view.findViewById(R.id.campo2);
+        holder.labor = (TextView)view.findViewById(R.id.campo3);
 
         if(null!=holder.name && null!=obj && obj.getUsuarioName().length()!=0){
-            holder.name.setText(obj.getUsuarioName());
-            holder.phone.setText(obj.getPhoneNumber());
-            holder.labor.setText(obj.getSpecialty());
+            holder.name.setText("Nombre: "+obj.getUsuarioName());
+            holder.phone.setText("Telefono: "+obj.getPhoneNumber());
+            holder.labor.setText("Labor: "+obj.getSpecialty());
+
+            holder.name.setVisibility(view.VISIBLE);
+            holder.phone.setVisibility(view.VISIBLE);
+            holder.labor.setVisibility(view.VISIBLE);
+
 
         }
         return view;

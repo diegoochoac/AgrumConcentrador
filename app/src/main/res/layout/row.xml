@@ -9,27 +9,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView android:id="@+id/Username"
-            android:text="Nombre"
-            android:textSize="25dp"
+        <TextView android:id="@+id/campo1"
+            android:text="campo1"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
+            android:layout_width="fill_parent"
+            android:visibility="invisible">
 
         </TextView>
 
-        <TextView android:id="@+id/Userphone"
-            android:text="Telefono"
-            android:textSize="20dp"
+        <TextView android:id="@+id/campo2"
+            android:text="campo2"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
+            android:layout_width="fill_parent"
+            android:visibility="invisible"
+            >
 
         </TextView>
 
-        <TextView android:id="@+id/Userlabor"
-            android:text="Labor"
-            android:textSize="20dp"
+        <TextView android:id="@+id/campo3"
+            android:text="campo3"
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
+            android:layout_width="fill_parent"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView android:id="@+id/campo4"
+            android:text="campo4"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView android:id="@+id/campo5"
+            android:text="campo5"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView android:id="@+id/campo6"
+            android:text="campo6"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:visibility="invisible">
 
         </TextView>
 

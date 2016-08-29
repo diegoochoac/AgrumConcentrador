@@ -69,7 +69,7 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
         foto = (ImageView)view.findViewById(R.id.imageView);
         foto.setOnClickListener(this);
 
-        Btnagregar= (Button)view.findViewById(R.id.btnAgregar);
+        Btnagregar= (Button)view.findViewById(R.id.btnAgregarUsuario);
         Btnagregar.setOnClickListener(this);
     }
 
@@ -79,7 +79,7 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
         Log.i("MenuFragment1", "onClick");
 
         switch (view.getId()) {
-            case R.id.btnAgregar:
+            case R.id.btnAgregarUsuario:
                 agregarUsuario(
                         nombre.getText().toString(),
                         labor.getText().toString(),

@@ -27,7 +27,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     //Objeto Dao qye se utiliza para acceder a la tabla usuario
     private Dao<Usuario,Integer> usuarioDao;
     private Dao<Trabajo,Integer> trabajoDao;
-    private Dao<Terreno,Integer> terenoDao;
+    private Dao<Terreno,Integer> terrenoDao;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -91,11 +91,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return trabajoDao;
     }
 
-    public Dao<Terreno, Integer> getTerenoDao() throws SQLException {
-        if(terenoDao==null){
-            terenoDao = getDao(Terreno.class);
+    public Dao<Terreno, Integer> getTerrenoDao() throws SQLException {
+        if(terrenoDao==null){
+            terrenoDao = getDao(Terreno.class);
         }
-        return terenoDao;
+        return terrenoDao;
     }
     //</editor-fold>
 

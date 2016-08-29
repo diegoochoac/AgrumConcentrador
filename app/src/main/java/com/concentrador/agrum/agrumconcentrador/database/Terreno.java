@@ -45,4 +45,61 @@ public class Terreno implements Serializable {
         this.Area = area;
     }
 
+    //<editor-fold desc="Metodos Get-Set">
+    public int getTerrenoId() {
+        return terrenoId;
+    }
+
+    public void setTerrenoId(int terrenoId) {
+        this.terrenoId = terrenoId;
+    }
+
+    public String getCod() {
+        return Cod;
+    }
+
+    public void setCod(String cod) {
+        Cod = cod;
+    }
+
+    public String getHacienda() {
+        return Hacienda;
+    }
+
+    public void setHacienda(String hacienda) {
+        Hacienda = hacienda;
+    }
+
+    public String getSte() {
+        return Ste;
+    }
+
+    public void setSte(String ste) {
+        Ste = ste;
+    }
+
+    public String getVariedad() {
+        return Variedad;
+    }
+
+    public void setVariedad(String variedad) {
+        Variedad = variedad;
+    }
+
+    public String getZonaAdmi() {
+        return ZonaAdmi;
+    }
+
+    public void setZonaAdmi(String zonaAdmi) {
+        ZonaAdmi = zonaAdmi;
+    }
+
+    public String getArea() {
+        return Area;
+    }
+
+    public void setArea(String area) {
+        Area = area;
+    }
+    //</editor-fold>
 }

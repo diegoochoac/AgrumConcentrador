@@ -7,22 +7,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.concentrador.agrum.agrumconcentrador.R;
 import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
+import com.concentrador.agrum.agrumconcentrador.database.Terreno;
 import com.concentrador.agrum.agrumconcentrador.database.Usuario;
+import com.concentrador.agrum.agrumconcentrador.utils.TerrenoAdapter;
 import com.concentrador.agrum.agrumconcentrador.utils.UsuarioAdapter;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.field.types.StringBytesType;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
@@ -31,8 +29,11 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
     private ListView listview;
 
     private Dao<Usuario, Integer> usuarioDao;
+    private Dao<Terreno, Integer> terrenoDao;
     private List<Usuario> usuarioList;
-    private UsuarioAdapter adapter = null;
+    private List<Terreno> terrenoList;
+    private UsuarioAdapter adapterUsuario = null;
+    private TerrenoAdapter adapterTerreno = null;
 
     Context thiscontext;
 
@@ -95,23 +96,24 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.btnUsuarios:
-
                 try {
-
                     usuarioDao =  getHelper().getUsuarioDao();
                     usuarioList = usuarioDao.queryForAll();
-                    adapter = new UsuarioAdapter(thiscontext, R.layout.row, usuarioList);
-                    listview.setAdapter(adapter);
-
-                    Log.i("MenuFragment3", "inicializarComponentes");
-
-
+                    adapterUsuario = new UsuarioAdapter(thiscontext, R.layout.row, usuarioList);
+                    listview.setAdapter(adapterUsuario);
                 }catch (SQLException e) {
                     e.printStackTrace();
                 }
-
                 break;
             case R.id.btnTerreno:
+                try {
+                    terrenoDao =  getHelper().getTerrenoDao();
+                    terrenoList = terrenoDao.queryForAll();
+                    adapterTerreno = new TerrenoAdapter(thiscontext, R.layout.row, terrenoList);
+                    listview.setAdapter(adapterTerreno);
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

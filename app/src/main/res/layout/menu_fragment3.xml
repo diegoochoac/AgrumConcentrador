@@ -37,11 +37,18 @@
         </LinearLayout>
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Lista Contenido"
+            android:id="@+id/textView4"
+            android:layout_marginTop="20dp" />
+
         <ListView
             android:id="@+id/listViewfragment"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp">
+            android:layout_width="match_parent">
         </ListView>
 
     </LinearLayout>
