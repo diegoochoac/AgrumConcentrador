@@ -7,12 +7,12 @@
     <dimen name="texSizeNodoFragment">20dp</dimen>
     <dimen name="textSizeBigNodoFragment">40dp</dimen>
 
-    <dimen name="textSizeRegistroFragment">20dp</dimen>
+    <dimen name="textSizeRegistroFragment">30dp</dimen>
     <dimen name="textSizeBigRegistroFragmnet">40dp</dimen>
 
     <dimen name="textSizeGPSFragment">20dp</dimen>
 
-    <dimen name="textSizeParametrosFragment">20dp</dimen>
+    <dimen name="textSizeParametrosFragment">30dp</dimen>
 
 
 

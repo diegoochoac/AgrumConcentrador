@@ -22,6 +22,13 @@ public class TerrenoAdapter extends ArrayAdapter<Terreno>{
     private int row;
     private List<Terreno> list ;
 
+    public TextView codigo;
+    public TextView hacienda;
+    public TextView suerte;
+    public TextView variedad;
+    public TextView zona;
+    public TextView area;
+
     public TerrenoAdapter(Context context, int textViewResourceId, List<Terreno> list) {
         super(context, textViewResourceId, list);
         this.mContext = context;
@@ -83,4 +90,6 @@ public class TerrenoAdapter extends ArrayAdapter<Terreno>{
         public TextView area;
 
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.concentrador.agrum.agrumconcentrador;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,8 @@ public class NavigationViewActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_view);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 
         appbar = (Toolbar)findViewById(R.id.appbar);
         setSupportActionBar(appbar);
