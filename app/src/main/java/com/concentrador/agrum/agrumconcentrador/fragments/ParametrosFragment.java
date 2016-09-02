@@ -1,14 +1,20 @@
 package com.concentrador.agrum.agrumconcentrador.fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,7 +35,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
     private DatabaseHelper databaseHelper = null;
 
     private TextView hacienda, suerte, contratista,operador;
-    private ListView listview;
 
     private Dao<Usuario, Integer> usuarioDao;
     private Dao<Terreno, Integer> terrenoDao;
@@ -37,6 +42,7 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
     private List<Terreno> terrenoList;
     private UsuarioAdapter adapterUsuario = null;
     private TerrenoAdapter adapterTerreno = null;
+    private Usuario usuario = new Usuario();
 
     private int stateClick = -1;
     Context thiscontext;
@@ -71,7 +77,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
 
     private void inicializarComponentes(final View view) {
 
-        listview = (ListView) view.findViewById(R.id.listViewfragmentparametros);
         hacienda = (TextView)view.findViewById(R.id.cmpTextHacienda);
         suerte = (TextView)view.findViewById(R.id.cmpTextSuerte);
         contratista = (TextView)view.findViewById(R.id.cmpTextContratista);
@@ -82,40 +87,151 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         contratista.setOnClickListener(this);
         operador.setOnClickListener(this);
 
+
+
+    }
+
+
+    void AlerDialogListUsuario(){
+        final AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(thiscontext);
+
+        LinearLayout layout= new LinearLayout(thiscontext);
+        final TextView Message        = new TextView(thiscontext);
+        final EditText editText = new EditText(thiscontext);
+        final ListView listview = new ListView(thiscontext);
+
+        Message.setText("Ingrese busqueda:");
+        editText.setSingleLine();
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.addView(Message);
+        layout.addView(editText);
+        layout.addView(listview);
+        alertdialogbuilder.setTitle("Por favor seleccione");
+        alertdialogbuilder.setView(layout);
+
+        listview.setAdapter(adapterUsuario);
+        final AlertDialog alert = alertdialogbuilder.create();
+
+        editText.addTextChangedListener(new TextWatcher(){
+            public void afterTextChanged(Editable s){
+
+            }
+            public void beforeTextChanged(CharSequence s,
+                                          int start, int count, int after){
+
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                String text = editText.getText().toString().toLowerCase().trim();
+                try {
+                usuarioDao =  getHelper().getUsuarioDao();
+                usuarioList = usuarioDao.queryForEq(Usuario.NOMBRE,text);
+                adapterUsuario = new UsuarioAdapter(thiscontext, R.layout.row, usuarioList);
+                listview.setAdapter(adapterUsuario);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
                 Object select= null;
+                select= adapterUsuario.getItem(position).getUsuarioName();
+                operador.setText(select.toString());
+                alert.cancel();
+            }
+        });
 
-                switch (stateClick) {
+        alertdialogbuilder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();
+    }
+
+    void AlerDialogListTerreno(){
+        final AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(thiscontext);
+
+        LinearLayout layout= new LinearLayout(thiscontext);
+        final TextView Message = new TextView(thiscontext);
+        final EditText editText = new EditText(thiscontext);
+        final ListView listview = new ListView(thiscontext);
+
+        Message.setText("Ingrese busqueda:");
+        editText.setSingleLine();
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.addView(Message);
+        layout.addView(editText);
+        layout.addView(listview);
+        alertdialogbuilder.setTitle("Por favor seleccione");
+        alertdialogbuilder.setView(layout);
+
+        listview.setAdapter(adapterTerreno);
+        final AlertDialog alert = alertdialogbuilder.create();
+
+        editText.addTextChangedListener(new TextWatcher(){
+            public void afterTextChanged(Editable s){
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                String text = editText.getText().toString().toLowerCase().trim();
+                try {
+                    terrenoDao =  getHelper().getTerrenoDao();
+
+                    switch (stateClick){
+                        case 1:
+                            terrenoList = terrenoDao.queryForEq(Terreno.HACIENDA,text);
+                            break;
+                        case 2:
+                            terrenoList = terrenoDao.queryForAll();
+                            break;
+                    }
+                    adapterTerreno = new TerrenoAdapter(thiscontext, R.layout.row, terrenoList);
+                    listview.setAdapter(adapterTerreno);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Object select= null;
+                switch (stateClick){
                     case 1:
                         select= adapterTerreno.getItem(position).getHacienda();
                         hacienda.setText(select.toString());
-                        stateClick = -1;
                         break;
                     case 2:
                         select= adapterTerreno.getItem(position).getSte();
                         suerte.setText(select.toString());
-                        stateClick = -1;
-                        break;
-                    case 3:
-                        select= adapterTerreno.getItem(position).getSte();
-                        contratista.setText(select.toString());
-                        stateClick = -1;
-                        break;
-                    case 4:
-                        select= adapterUsuario.getItem(position).getUsuarioName();
-                        operador.setText(select.toString());
-                        stateClick = -1;
-                        break;
-                    default:
                         break;
                 }
-                Log.i("ParametrosFragment", "setOnItemClickListener +position:");
+                alert.cancel();
             }
         });
 
+        alertdialogbuilder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();
     }
+
+
 
     @Override
     public void onResume() {
@@ -135,9 +251,9 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
             case R.id.cmpTextHacienda:
                 try {
                     terrenoDao = getHelper().getTerrenoDao();
-                    terrenoList = terrenoDao.queryForAll();     //TODO: cambiar esto por la consulta adecuada
+                    terrenoList = terrenoDao.queryForAll();
                     adapterTerreno = new TerrenoAdapter(thiscontext, R.layout.row, terrenoList);
-                    listview.setAdapter(adapterTerreno);
+                    AlerDialogListTerreno();
                     stateClick = 1;
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -146,9 +262,9 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
             case R.id.cmpTextSuerte:
                 try {
                     terrenoDao = getHelper().getTerrenoDao();
-                    terrenoList = terrenoDao.queryForAll();     //TODO: cambiar esto por la consulta adecuada
+                    terrenoList = terrenoDao.queryForAll();
                     adapterTerreno = new TerrenoAdapter(thiscontext, R.layout.row, terrenoList);
-                    listview.setAdapter(adapterTerreno);
+                    AlerDialogListTerreno();
                     stateClick = 2;
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -158,9 +274,9 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
             case R.id.cmpTextOperador:
                 try {
                     usuarioDao =  getHelper().getUsuarioDao();
-                    usuarioList = usuarioDao.queryForAll();       //TODO: cambiar esto por la consulta adecuada
+                    usuarioList = usuarioDao.queryForAll();
                     adapterUsuario = new UsuarioAdapter(thiscontext, R.layout.row, usuarioList);
-                    listview.setAdapter(adapterUsuario);
+                    AlerDialogListUsuario();
                     stateClick = 4;
                 } catch (SQLException e) {
                     e.printStackTrace();

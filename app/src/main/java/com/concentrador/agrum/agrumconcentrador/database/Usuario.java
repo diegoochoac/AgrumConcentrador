@@ -11,10 +11,13 @@ import java.io.Serializable;
 //@DatabaseTable(tableName = "usuario")
 public class Usuario implements Serializable {
 
-    @DatabaseField(generatedId = true, columnName = "usuario_id")
+    public static final String ID = "usuario_id";
+    public static final String NOMBRE = "usuario_name";
+
+    @DatabaseField(generatedId = true, columnName = ID)
     private int usuarioId;
 
-    @DatabaseField(columnName = "usuario_name")
+    @DatabaseField(columnName = NOMBRE)
     private String usuarioName;
 
     @DatabaseField
