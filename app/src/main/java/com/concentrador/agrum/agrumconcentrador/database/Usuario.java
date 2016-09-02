@@ -29,17 +29,22 @@ public class Usuario implements Serializable {
     @DatabaseField
     private String avatarUri;
 
+    // Foreign key defined to hold associations
+    @DatabaseField(canBeNull = false, foreign = true, foreignAutoRefresh = true)
+    public Contratista contratista;
+
     public Usuario() {
     }
 
     public Usuario(final String name,
                    final String specialty, final String phoneNumber,
-                   final String avatarUri) {
+                   final String avatarUri, Contratista contra) {
 
         this.usuarioName = name;
         this.specialty = specialty;
         this.phoneNumber = phoneNumber;
         this.avatarUri = avatarUri;
+        this.contratista = contra;
     }
 
     //<editor-fold desc="Metodos Get-Set">
@@ -82,5 +87,14 @@ public class Usuario implements Serializable {
     public void setAvatarUri(String avatarUri) {
         this.avatarUri = avatarUri;
     }
+
+    public Contratista getContratista() {
+        return contratista;
+    }
+
+    public void setContratista(Contratista contratista) {
+        this.contratista = contratista;
+    }
+
     //</editor-fold>
 }

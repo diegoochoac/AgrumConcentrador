@@ -49,17 +49,20 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario> {
         holder.name = (TextView)view.findViewById(R.id.campo1);
         holder.phone = (TextView)view.findViewById(R.id.campo2);
         holder.labor = (TextView)view.findViewById(R.id.campo3);
+        holder.contratista = (TextView)view.findViewById(R.id.campo4);
 
-        if(null!=holder.name && null!=obj && obj.getUsuarioName().length()!=0){
+        if(null!=holder.name && null!=obj && obj.getUsuarioName().length()!=0 ){
             holder.name.setText("Nombre: "+obj.getUsuarioName());
             holder.phone.setText("Telefono: "+obj.getPhoneNumber());
             holder.labor.setText("Labor: "+obj.getSpecialty());
+            if(holder.contratista != null) {
+                holder.contratista.setText("Contratista:" + obj.getContratista().getContratistaName());
+                holder.contratista.setVisibility(view.VISIBLE);
+            }
 
             holder.name.setVisibility(view.VISIBLE);
             holder.phone.setVisibility(view.VISIBLE);
             holder.labor.setVisibility(view.VISIBLE);
-
-
         }
         return view;
     }
@@ -68,6 +71,7 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario> {
         public TextView name;
         public TextView phone;
         public TextView labor;
+        public TextView contratista;
     }
 
 

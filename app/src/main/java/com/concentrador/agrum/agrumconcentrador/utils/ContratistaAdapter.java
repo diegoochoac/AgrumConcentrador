@@ -51,7 +51,6 @@ public class ContratistaAdapter extends ArrayAdapter<Contratista> {
 
         if (null != holder.name && null != obj && obj.getContratistaName().length() != 0) {
             holder.name.setText("Nombre: " + obj.getContratistaName());
-
             holder.name.setVisibility(view.VISIBLE);
         }
         return view;
