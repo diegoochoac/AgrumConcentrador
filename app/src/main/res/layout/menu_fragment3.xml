@@ -19,12 +19,12 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
-                android:text="Terrenos"
-                android:id="@+id/btnTerreno"
-                android:layout_gravity="center_horizontal"
+                android:text="Contratista"
+                android:id="@+id/btnContratista"
+                android:layout_weight="1"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1" />
+                android:layout_gravity="center_horizontal" />
 
             <Button
                 android:layout_width="fill_parent"
@@ -33,7 +33,19 @@
                 android:id="@+id/btnUsuarios"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="Terrenos"
+                android:id="@+id/btnTerreno"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1" />
+
         </LinearLayout>
 
 

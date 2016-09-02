@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearContratista;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment1;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment2;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment3;
@@ -31,6 +32,10 @@ public class NavigationViewActivity extends AppCompatActivity{
         Fragment fragment = null;
 
         switch (fragment_receiver){
+            case "menu0":
+                fragment = new MenuCrearContratista();
+                fragmentTransaction = true;
+                break;
             case "menu1":
                 fragment = new MenuFragment1();
                 fragmentTransaction = true;

@@ -26,6 +26,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     //Objeto Dao qye se utiliza para acceder a la tabla usuario
     private Dao<Usuario,Integer> usuarioDao;
+    private Dao<Contratista, Integer> contratistaDao;
     private Dao<Trabajo,Integer> trabajoDao;
     private Dao<Terreno,Integer> terrenoDao;
 
@@ -44,6 +45,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getSimpleName(), "onCreate()");
             TableUtils.createTable(source,Usuario.class);
+            TableUtils.createTable(source,Contratista.class);
             TableUtils.createTable(source,Trabajo.class);
             TableUtils.createTable(source,Terreno.class);
         }catch (SQLException ex) {
@@ -65,6 +67,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getSimpleName(), "onUpgrade()");
             TableUtils.dropTable(source,Usuario.class, true);
+            TableUtils.dropTable(source,Contratista.class, true);
             TableUtils.dropTable(source,Trabajo.class, true);
             TableUtils.dropTable(source,Terreno.class, true);
             onCreate(db, source);
@@ -82,6 +85,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             usuarioDao = getDao(Usuario.class);
         }
         return usuarioDao;
+    }
+
+    public Dao<Contratista, Integer> getContratistaDao()  throws SQLException{
+        if(contratistaDao==null){
+            contratistaDao = getDao(Contratista.class);
+        }
+        return contratistaDao;
     }
 
     public Dao<Trabajo, Integer> getTrabajoDao() throws SQLException {

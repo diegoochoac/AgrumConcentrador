@@ -8,14 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.concentrador.agrum.agrumconcentrador.R;
 import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
 import com.concentrador.agrum.agrumconcentrador.database.Terreno;
-import com.concentrador.agrum.agrumconcentrador.database.Usuario;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
@@ -39,7 +37,7 @@ public class MenuFragment2 extends Fragment implements OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview = inflater.inflate(R.layout.menu_fragment2, container, false);
+        View rootview = inflater.inflate(R.layout.menu_fragment_crearterreno, container, false);
         inicializarComponentes(rootview);
         return rootview;
     }

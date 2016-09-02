@@ -40,7 +40,7 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview = inflater.inflate(R.layout.menu_fragment1, container, false);
+        View rootview = inflater.inflate(R.layout.menu_fragment_crearusuario, container, false);
         inicializarComponentes(rootview);
         return rootview;
     }
@@ -131,9 +131,5 @@ public class MenuFragment1 extends Fragment implements OnClickListener {
             foto.setTag(data.getData());
         }
     }
-
-
-
-
 
 }

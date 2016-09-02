@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.concentrador.agrum.agrumconcentrador.R;
+import com.concentrador.agrum.agrumconcentrador.database.Contratista;
 import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
 import com.concentrador.agrum.agrumconcentrador.database.Terreno;
 import com.concentrador.agrum.agrumconcentrador.database.Usuario;
+import com.concentrador.agrum.agrumconcentrador.utils.ContratistaAdapter;
 import com.concentrador.agrum.agrumconcentrador.utils.TerrenoAdapter;
 import com.concentrador.agrum.agrumconcentrador.utils.UsuarioAdapter;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -25,15 +27,20 @@ import java.util.List;
 public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
     private DatabaseHelper databaseHelper = null;
-    private Button BtnUsuarios, BtnTerreno;
+    private Button BtnContratista, BtnUsuarios, BtnTerreno;
     private ListView listview;
 
     private Dao<Usuario, Integer> usuarioDao;
     private Dao<Terreno, Integer> terrenoDao;
+    private Dao<Contratista, Integer> contratistaDao;
+
     private List<Usuario> usuarioList;
     private List<Terreno> terrenoList;
+    private List<Contratista> contratistaList;
+
     private UsuarioAdapter adapterUsuario = null;
     private TerrenoAdapter adapterTerreno = null;
+    private ContratistaAdapter adapterContratista = null;
 
     Context thiscontext;
 
@@ -72,8 +79,10 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
         listview = (ListView) view.findViewById(R.id.listViewfragment);
 
+        BtnContratista = (Button)view.findViewById(R.id.btnContratista);
         BtnUsuarios = (Button)view.findViewById(R.id.btnUsuarios);
         BtnTerreno = (Button)view.findViewById(R.id.btnTerreno);
+        BtnContratista.setOnClickListener(this);
         BtnUsuarios.setOnClickListener(this);
         BtnTerreno.setOnClickListener(this);
 
@@ -92,10 +101,24 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Log.i("MenuFragment3", "onClick");
+
 
         switch (view.getId()) {
+
+            case R.id.btnContratista:
+                Log.i("MenuFragment3", "btnContratista");
+                try {
+                    contratistaDao =  getHelper().getContratistaDao();
+                    contratistaList = contratistaDao.queryForAll();
+                    adapterContratista = new ContratistaAdapter(thiscontext, R.layout.row, contratistaList);
+                    listview.setAdapter(adapterContratista);
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+
             case R.id.btnUsuarios:
+                Log.i("MenuFragment3", "btnAgregarContratista");
                 try {
                     usuarioDao =  getHelper().getUsuarioDao();
                     usuarioList = usuarioDao.queryForAll();
@@ -105,7 +128,9 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 break;
+
             case R.id.btnTerreno:
+                Log.i("MenuFragment3", "btnTerreno");
                 try {
                     terrenoDao =  getHelper().getTerrenoDao();
                     terrenoList = terrenoDao.queryForAll();

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AgrumConcentrador</string>
     <string name="usuario">Usuario</string>
+
+    <string name="seccion_0">Crear Contratista</string>
     <string name="seccion_1">Crear Usuario</string>
     <string name="seccion_2">Crear Terreno</string>
     <string name="seccion_3">Administrar</string>

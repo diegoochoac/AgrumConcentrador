@@ -20,7 +20,7 @@ public class Terreno implements Serializable {
     @DatabaseField
     private String Cod;
 
-    @DatabaseField(columnName = HACIENDA)
+    @DatabaseField
     private String Hacienda;
 
     @DatabaseField

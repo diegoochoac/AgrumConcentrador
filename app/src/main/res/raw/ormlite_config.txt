@@ -1,5 +1,5 @@
 #
-# generated on 2016/08/27 01:59:38
+# generated on 2016/09/02 12:16:52
 #
 # --table-start--
 dataClass=com.concentrador.agrum.agrumconcentrador.database.Terreno
@@ -67,6 +67,22 @@ generatedId=true
 # --field-end--
 # --field-start--
 fieldName=trabajoName
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.concentrador.agrum.agrumconcentrador.database.Contratista
+tableName=contratista
+# --table-fields-start--
+# --field-start--
+fieldName=usuarioId
+columnName=contratista_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=contratistaName
+columnName=contratista_name
 # --field-end--
 # --table-fields-end--
 # --table-end--

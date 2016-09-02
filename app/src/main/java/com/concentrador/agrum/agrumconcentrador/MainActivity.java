@@ -87,6 +87,13 @@ public class MainActivity extends AppCompatActivity{
                         Intent intent;
 
                         switch (menuItem.getItemId()) {
+                            case R.id.menu_seccion_0:
+                                intent = new Intent(MainActivity.this, NavigationViewActivity.class);
+                                intent.putExtra("Fragment", "menu0");
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                break;
+
                             case R.id.menu_seccion_1:
                                 intent = new Intent(MainActivity.this, NavigationViewActivity.class);
                                 intent.putExtra("Fragment", "menu1");
