@@ -1,248 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relativeLayout6"
     android:weightSum="1">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_weight="0.23">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Hacienda:"
-                    android:id="@+id/textViewHacienda"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:textStyle="bold"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/cmpTextHacienda"
-                    android:layout_marginLeft="20dp"
-                    android:hint="Nombre Hacienda"
-                    android:textSize="@dimen/textSizeParametrosFragment" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Suerte:"
-                    android:id="@+id/textViewSuerte"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:layout_below="@+id/txtParametrosHacienda"
-                    android:layout_alignLeft="@+id/textViewHacienda"
-                    android:layout_alignStart="@+id/textViewHacienda" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/cmpTextSuerte"
-                    android:layout_marginLeft="20dp"
-                    android:hint="Nombre Suerte"
-                    android:textSize="@dimen/textSizeParametrosFragment" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Contratista:"
-                    android:id="@+id/textViewContratista"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:layout_below="@+id/textViewSuerte"
-                    android:layout_alignLeft="@+id/textViewSuerte"
-                    android:layout_alignStart="@+id/textViewSuerte" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/cmpTextContratista"
-                    android:layout_marginLeft="20dp"
-                    android:hint="Nombre Contratista"
-                    android:textSize="@dimen/textSizeParametrosFragment" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Operador:"
-                    android:id="@+id/textViewOperador"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:layout_below="@+id/textViewContratista"
-                    android:layout_alignLeft="@+id/textViewContratista"
-                    android:layout_alignStart="@+id/textViewContratista" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/cmpTextOperador"
-                    android:layout_marginLeft="20dp"
-                    android:hint="Nombre Operador"
-                    android:textSize="@dimen/textSizeParametrosFragment" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Profund.:"
-                    android:id="@+id/textView44"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:layout_below="@+id/textViewOperador"
-                    android:layout_alignLeft="@+id/textViewOperador"
-                    android:layout_alignStart="@+id/textViewOperador" />
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerProfundidad"
-                    android:textSize="40sp"
-                    android:layout_alignBottom="@+id/textView44"
-                    android:layout_alignLeft="@+id/txtParametrosContratista"
-                    android:layout_alignStart="@+id/txtParametrosContratista" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Eq.Agricola:"
-                    android:id="@+id/textView46"
-                    android:paddingTop="20dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/textSizeParametrosFragment"
-                    android:layout_below="@+id/textView44"
-                    android:layout_alignLeft="@+id/textViewOperador"
-                    android:layout_alignStart="@+id/textViewOperador" />
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerEqAgricola"
-                    android:textSize="40sp"
-                    android:layout_alignBottom="@+id/textView46"
-                    android:layout_alignLeft="@+id/txtParametrosContratista"
-                    android:layout_alignStart="@+id/txtParametrosContratista" />
-            </TableRow>
-
-        </LinearLayout>
-
-    </RelativeLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/relativeLayout6"
-        android:background="#FFF"
-        android:layout_weight="0.75"
-        android:weightSum="9">
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
-            android:id="@+id/layoutRegistro"
-            android:layout_marginTop="0dp"
-            android:layout_weight="4.5">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Registro"
-                android:id="@+id/textView43"
-                android:textSize="45dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Hacienda:"
+                        android:id="@+id/textViewHacienda"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:textStyle="bold"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/cmpTextHacienda"
+                        android:layout_marginLeft="20dp"
+                        android:hint="Nombre Hacienda"
+                        android:textSize="@dimen/textSizeParametrosFragment" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Suerte:"
+                        android:id="@+id/textViewSuerte"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:layout_below="@+id/txtParametrosHacienda"
+                        android:layout_alignLeft="@+id/textViewHacienda"
+                        android:layout_alignStart="@+id/textViewHacienda" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/cmpTextSuerte"
+                        android:layout_marginLeft="20dp"
+                        android:hint="Nombre Suerte"
+                        android:textSize="@dimen/textSizeParametrosFragment" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Contratista:"
+                        android:id="@+id/textViewContratista"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:layout_below="@+id/textViewSuerte"
+                        android:layout_alignLeft="@+id/textViewSuerte"
+                        android:layout_alignStart="@+id/textViewSuerte" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/cmpTextContratista"
+                        android:layout_marginLeft="20dp"
+                        android:hint="Nombre Contratista"
+                        android:textSize="@dimen/textSizeParametrosFragment" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Operador:"
+                        android:id="@+id/textViewOperador"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:layout_below="@+id/textViewContratista"
+                        android:layout_alignLeft="@+id/textViewContratista"
+                        android:layout_alignStart="@+id/textViewContratista" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/cmpTextOperador"
+                        android:layout_marginLeft="20dp"
+                        android:hint="Nombre Operador"
+                        android:textSize="@dimen/textSizeParametrosFragment" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Profund.:"
+                        android:id="@+id/textView44"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:layout_below="@+id/textViewOperador"
+                        android:layout_alignLeft="@+id/textViewOperador"
+                        android:layout_alignStart="@+id/textViewOperador" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinnerProfundidad"
+                        android:textSize="40sp"
+                        android:layout_alignBottom="@+id/textView44"
+                        android:layout_alignLeft="@+id/txtParametrosContratista"
+                        android:layout_alignStart="@+id/txtParametrosContratista" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Eq.Agricola:"
+                        android:id="@+id/textView46"
+                        android:paddingTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/textSizeParametrosFragment"
+                        android:layout_below="@+id/textView44"
+                        android:layout_alignLeft="@+id/textViewOperador"
+                        android:layout_alignStart="@+id/textViewOperador" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinnerEqAgricola"
+                        android:textSize="40sp"
+                        android:layout_alignBottom="@+id/textView46"
+                        android:layout_alignLeft="@+id/txtParametrosContratista"
+                        android:layout_alignStart="@+id/txtParametrosContratista" />
+                </TableRow>
+
+            </LinearLayout>
+
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
-            android:id="@+id/layoutParametrosMaquina"
-            android:layout_marginTop="0dp"
-            android:layout_weight="4">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Params Maquina"
-                android:id="@+id/textView45"
-                android:textSize="45dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
+            android:layout_weight="2">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Registro"
+                    android:textSize="@dimen/textSizeRegistroFragment"
+                    android:background="@drawable/border"
+                    android:textColor="#FFF"
+                    android:id="@+id/btnRegistro"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Param Maquina"
+                    android:textSize="@dimen/textSizeRegistroFragment"
+                    android:background="@drawable/border"
+                    android:textColor="#FFF"
+                    android:id="@+id/btnParametrosMaquina"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

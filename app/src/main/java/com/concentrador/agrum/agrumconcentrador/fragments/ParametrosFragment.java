@@ -42,7 +42,7 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
     private List<Terreno> terrenoList;
     private UsuarioAdapter adapterUsuario = null;
     private TerrenoAdapter adapterTerreno = null;
-    private Usuario usuario = new Usuario();
+
 
     private int stateClick = -1;
     Context thiscontext;
@@ -55,7 +55,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         View rootview = inflater.inflate(R.layout.parametros_fragment, container, false);
         inicializarComponentes(rootview);
         thiscontext = container.getContext();
-
         return rootview;
     }
 
@@ -86,9 +85,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         suerte.setOnClickListener(this);
         contratista.setOnClickListener(this);
         operador.setOnClickListener(this);
-
-
-
     }
 
 
@@ -281,6 +277,12 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
+
+            case R.id.btnRegistro:
+                break;
+
+            case R.id.btnParametrosMaquina:
                 break;
 
         }
