@@ -39,7 +39,8 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/cmpTextHacienda"
                     android:layout_marginLeft="20dp"
-                    android:hint="Nombre Hacienda" />
+                    android:hint="Nombre Hacienda"
+                    android:textSize="@dimen/textSizeParametrosFragment" />
 
             </TableRow>
 
@@ -67,7 +68,8 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/cmpTextSuerte"
                     android:layout_marginLeft="20dp"
-                    android:hint="Nombre Suerte" />
+                    android:hint="Nombre Suerte"
+                    android:textSize="@dimen/textSizeParametrosFragment" />
 
             </TableRow>
 
@@ -95,7 +97,8 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/cmpTextContratista"
                     android:layout_marginLeft="20dp"
-                    android:hint="Nombre Contratista" />
+                    android:hint="Nombre Contratista"
+                    android:textSize="@dimen/textSizeParametrosFragment" />
 
             </TableRow>
 
@@ -123,7 +126,8 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:id="@+id/cmpTextOperador"
                     android:layout_marginLeft="20dp"
-                    android:hint="Nombre Operador" />
+                    android:hint="Nombre Operador"
+                    android:textSize="@dimen/textSizeParametrosFragment" />
 
             </TableRow>
 

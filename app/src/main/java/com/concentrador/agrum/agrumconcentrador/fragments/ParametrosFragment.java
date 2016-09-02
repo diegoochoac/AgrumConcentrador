@@ -85,22 +85,27 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Object listItem = listview.getItemAtPosition(position);
+                Object select= null;
+
                 switch (stateClick) {
                     case 1:
-                        hacienda.setText(listItem.toString());
+                        select= adapterTerreno.getItem(position).getHacienda();
+                        hacienda.setText(select.toString());
                         stateClick = -1;
                         break;
                     case 2:
-                        suerte.setText(listItem.toString());
+                        select= adapterTerreno.getItem(position).getSte();
+                        suerte.setText(select.toString());
                         stateClick = -1;
                         break;
                     case 3:
-                        contratista.setText(listItem.toString());
+                        select= adapterTerreno.getItem(position).getSte();
+                        contratista.setText(select.toString());
                         stateClick = -1;
                         break;
                     case 4:
-                        operador.setText(listItem.toString());
+                        select= adapterUsuario.getItem(position).getUsuarioName();
+                        operador.setText(select.toString());
                         stateClick = -1;
                         break;
                     default:
