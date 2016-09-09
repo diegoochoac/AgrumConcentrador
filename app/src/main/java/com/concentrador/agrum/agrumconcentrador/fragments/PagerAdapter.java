@@ -20,7 +20,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 ParametrosFragment parametrostab = new ParametrosFragment();
                 return parametrostab;
             case 1:
-                ParametrosMaquina parametrosmaquinatab = new ParametrosMaquina();
+                ParametrosMaquinaFragment parametrosmaquinatab = new ParametrosMaquinaFragment();
                 return parametrosmaquinatab;
             case 2:
                 NodosFragment nodostab = new NodosFragment();

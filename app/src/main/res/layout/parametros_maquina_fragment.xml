@@ -1,139 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/relativeLayout6"
+    android:id="@+id/relativeLayout7"
     android:weightSum="1">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_weight="0.23">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Dist. Herramienta:"
-            android:id="@+id/textViewHacienda"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="45dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtParametrosDistanciaHerramienta"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:hint="Dist. a Herramienta"
-            android:inputType="numberDecimal"
-            android:layout_below="@+id/textViewHacienda"
-            android:layout_alignLeft="@+id/textViewHacienda"
-            android:layout_alignStart="@+id/textViewHacienda" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Dist. al Suelo:"
-            android:id="@+id/textViewContratista"
-            android:paddingTop="20dp"
-            android:textStyle="bold"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:layout_below="@+id/txtParametrosDistanciaHerramienta"
-            android:layout_alignLeft="@+id/txtParametrosDistanciaHerramienta"
-            android:layout_alignStart="@+id/txtParametrosDistanciaHerramienta" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtParametrosDistanciaSuelo"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:hint="Dist. Suelo"
-            android:inputType="numberDecimal"
-            android:layout_below="@+id/textViewContratista"
-            android:layout_alignLeft="@+id/textViewContratista"
-            android:layout_alignStart="@+id/textViewContratista" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ancho Labor:"
-            android:id="@+id/textViewOperador"
-            android:paddingTop="20dp"
-            android:textStyle="bold"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:layout_below="@+id/txtParametrosDistanciaSuelo"
-            android:layout_alignLeft="@+id/txtParametrosDistanciaSuelo"
-            android:layout_alignStart="@+id/txtParametrosDistanciaSuelo" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtParametrosAnchoLabor"
-            android:textSize="@dimen/textSizeParametrosFragment"
-            android:hint="Ancho Labor"
-            android:layout_below="@+id/textViewOperador"
-            android:layout_alignLeft="@+id/textViewOperador"
-            android:layout_alignStart="@+id/textViewOperador" />
-        />
-    </RelativeLayout>
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/relativeLayout6"
-        android:background="#FFF"
-        android:layout_weight="0.75"
-        android:weightSum="9">
+        android:layout_alignParentStart="true">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
-            android:id="@+id/layoutRegistro_ParamMaquina"
-            android:layout_marginTop="0dp"
-            android:layout_weight="4.5">
+            android:layout_alignParentTop="true"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Registro"
-                android:id="@+id/textView43"
-                android:textSize="45dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:text="Dist. Herramienta:"
+                android:id="@+id/textViewHacienda"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="45dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtParametrosDistanciaHerramienta"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:hint="Dist. a Herramienta"
+                android:inputType="numberDecimal"
+                android:layout_below="@+id/textViewHacienda"
+                android:layout_alignLeft="@+id/textViewHacienda"
+                android:layout_alignStart="@+id/textViewHacienda" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Dist. al Suelo:"
+                android:id="@+id/textViewContratista"
+                android:paddingTop="20dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:layout_below="@+id/txtParametrosDistanciaHerramienta"
+                android:layout_alignLeft="@+id/txtParametrosDistanciaHerramienta"
+                android:layout_alignStart="@+id/txtParametrosDistanciaHerramienta" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtParametrosDistanciaSuelo"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:hint="Dist. Suelo"
+                android:inputType="numberDecimal"
+                android:layout_below="@+id/textViewContratista"
+                android:layout_alignLeft="@+id/textViewContratista"
+                android:layout_alignStart="@+id/textViewContratista" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Ancho Labor:"
+                android:id="@+id/textViewOperador"
+                android:paddingTop="20dp"
+                android:textStyle="bold"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:layout_below="@+id/txtParametrosDistanciaSuelo"
+                android:layout_alignLeft="@+id/txtParametrosDistanciaSuelo"
+                android:layout_alignStart="@+id/txtParametrosDistanciaSuelo" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtParametrosAnchoLabor"
+                android:textSize="@dimen/textSizeParametrosFragment"
+                android:hint="Ancho Labor"
+                android:layout_below="@+id/textViewOperador"
+                android:layout_alignLeft="@+id/textViewOperador"
+                android:layout_alignStart="@+id/textViewOperador" />
+            />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
-            android:id="@+id/layoutParametrosRegistro"
-            android:layout_marginTop="0dp"
-            android:layout_weight="4">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Params Registro"
-                android:id="@+id/textView45"
-                android:textSize="45dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
+            android:layout_weight="2">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Registro"
+                    android:textSize="@dimen/textSizeRegistroFragment"
+                    android:textColor="#FFF"
+                    android:id="@+id/btnParamMaquina"
+                    android:background="@drawable/border"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Params Registro"
+                    android:textSize="@dimen/textSizeRegistroFragment"
+                    android:textColor="#FFF"
+                    android:id="@+id/btnParametrosRegistro"
+                    android:background="@drawable/border"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

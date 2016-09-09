@@ -67,8 +67,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
     public final static String ARG_OPERADOR = "Arg opeador";
 
     //Variables locales
-    private String mParam1;
-    private String mParam2;
     private String hacienda;
     private String suerte;
     private String contratista;
