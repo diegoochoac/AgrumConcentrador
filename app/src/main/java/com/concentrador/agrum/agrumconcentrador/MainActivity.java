@@ -3,6 +3,7 @@ package com.concentrador.agrum.agrumconcentrador;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -16,10 +17,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.concentrador.agrum.agrumconcentrador.fragments.OnFragmentInteractionListener;
 import com.concentrador.agrum.agrumconcentrador.fragments.PagerAdapter;
 
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     //AppCompatActivity
 
@@ -157,6 +159,11 @@ public class MainActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-        //</editor-fold>
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    //</editor-fold>
 
 }

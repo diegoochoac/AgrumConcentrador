@@ -9,7 +9,7 @@ import android.util.Log;
 
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearContratista;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment1;
-import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment2;
+import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearUsuario;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment3;
 
 public class NavigationViewActivity extends AppCompatActivity{
@@ -41,7 +41,7 @@ public class NavigationViewActivity extends AppCompatActivity{
                 fragmentTransaction = true;
                 break;
             case "menu2":
-                fragment = new MenuFragment2();
+                fragment = new MenuCrearUsuario();
                 fragmentTransaction = true;
                 break;
             case "menu3":

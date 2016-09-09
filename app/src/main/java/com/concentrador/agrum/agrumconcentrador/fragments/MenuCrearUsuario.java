@@ -19,7 +19,7 @@ import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;
 
-public class MenuFragment2 extends Fragment implements OnClickListener{
+public class MenuCrearUsuario extends Fragment implements OnClickListener{
 
 
     private DatabaseHelper databaseHelper = null;
@@ -29,7 +29,7 @@ public class MenuFragment2 extends Fragment implements OnClickListener{
 
 
 
-    public MenuFragment2() {
+    public MenuCrearUsuario() {
         // Required empty public constructor
     }
 

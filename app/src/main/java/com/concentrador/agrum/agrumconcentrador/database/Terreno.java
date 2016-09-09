@@ -13,6 +13,7 @@ public class Terreno implements Serializable {
 
     public static final String ID = "terreno_id";
     public static final String HACIENDA = "hacienda";
+    public static final String SUERTE = "suerte";
 
     @DatabaseField(generatedId = true, columnName = ID)
     private int terrenoId;
@@ -20,10 +21,10 @@ public class Terreno implements Serializable {
     @DatabaseField
     private String Cod;
 
-    @DatabaseField
+    @DatabaseField (columnName = HACIENDA)
     private String Hacienda;
 
-    @DatabaseField
+    @DatabaseField(columnName = SUERTE)
     private String Ste;
 
     @DatabaseField
