@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.concentrador.agrum.agrumconcentrador.fragments.MenuAdministrar;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearContratista;
-import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment1;
+import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearTerreno;
 import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearUsuario;
-import com.concentrador.agrum.agrumconcentrador.fragments.MenuFragment3;
+
 
 public class NavigationViewActivity extends AppCompatActivity{
 
@@ -37,15 +38,15 @@ public class NavigationViewActivity extends AppCompatActivity{
                 fragmentTransaction = true;
                 break;
             case "menu1":
-                fragment = new MenuFragment1();
-                fragmentTransaction = true;
-                break;
-            case "menu2":
                 fragment = new MenuCrearUsuario();
                 fragmentTransaction = true;
                 break;
+            case "menu2":
+                fragment = new MenuCrearTerreno();
+                fragmentTransaction = true;
+                break;
             case "menu3":
-                fragment = new MenuFragment3();
+                fragment = new MenuAdministrar();
                 fragmentTransaction = true;
                 break;
         }

@@ -12,19 +12,16 @@ import android.widget.Toast;
 
 import com.concentrador.agrum.agrumconcentrador.R;
 import com.concentrador.agrum.agrumconcentrador.database.Contratista;
-import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
-
-import java.sql.SQLException;
+import com.concentrador.agrum.agrumconcentrador.database.DatabaseCrud;
 
 /**
- * Created by diego on 2/09/16.
+ * Created by diego on 9/09/16.
  */
-public class MenuCrearContratista extends Fragment implements OnClickListener{
+public class MenuCrearContratista extends Fragment implements OnClickListener  {
 
+    //Base de Datos
+    private DatabaseCrud database;
 
-    private DatabaseHelper databaseHelper = null;
     private EditText nombre;
     private Button Btnagregar;
 
@@ -32,65 +29,45 @@ public class MenuCrearContratista extends Fragment implements OnClickListener{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.menu_fragment_crearcontratista, container, false);
+        database = new DatabaseCrud(container.getContext());
         inicializarComponentes(rootview);
         return rootview;
     }
 
-    protected DatabaseHelper getHelper() {
-        if (databaseHelper == null) {
-            databaseHelper = OpenHelperManager.getHelper(getActivity(), DatabaseHelper.class);
-        }
-        return databaseHelper;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (databaseHelper != null) {
-            OpenHelperManager.releaseHelper();
-            databaseHelper = null;
-        }
-    }
-
-    private void inicializarComponentes(View view) {
-
+    private void inicializarComponentes(final View view) {
         nombre = (EditText)view.findViewById(R.id.cmpNombreContratista);
+
         Btnagregar= (Button)view.findViewById(R.id.btnAgregarContratista);
         Btnagregar.setOnClickListener(this);
     }
 
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.btnAgregarContratista:
-                agregarContratista(nombre.getText().toString());
-                Toast.makeText(view.getContext(),"Contratista Agregado", Toast.LENGTH_SHORT).show();
-                limpiarCampos();
-                break;
-        }
-
-    }
-
-    private void agregarContratista(String name) {
-        Contratista contratista = new Contratista(name);
-        try {
-            // Now, need to interact with StudentDetails table/object, so initialize DAO for that
-            final Dao<Contratista, Integer> contratistaDao = getHelper().getContratistaDao();
-            contratistaDao.create(contratista);
-
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void agregarContratista(String nombre){
+        Contratista contratista = new Contratista(nombre);
+        database.crearContratista(contratista);
     }
 
     public void limpiarCampos(){
         nombre.getText().clear();
-        nombre.requestFocus();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnAgregarContratista:
+                if(nombre.getText().toString().length()>0){
+                    agregarContratista(
+                            nombre.getText().toString()
+                    );
+                    Toast.makeText(view.getContext(),"Contratista Agregado", Toast.LENGTH_SHORT).show();
+                    limpiarCampos();
+                }else{
+                    Toast.makeText(view.getContext(),"Complete la informacion", Toast.LENGTH_SHORT).show();
+                    nombre.setFocusable(true);
+                }
+                break;
+        }
     }
 }

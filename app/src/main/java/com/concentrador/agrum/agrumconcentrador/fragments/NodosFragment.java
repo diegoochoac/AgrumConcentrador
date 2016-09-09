@@ -143,8 +143,13 @@ public class NodosFragment extends Fragment implements TextWatcher, OnClickListe
     public void onTextChanged(CharSequence s, int i, int i1, int i2) {
         if (txtNodosOffset.getText().hashCode() == s.hashCode())
         {
-            Uri uri = Uri.parse(SET_OFFSET_PROFUNDIDAD +":"+ s.toString());
-            mListener.onFragmentInteraction(uri);
+            try
+            {
+                Uri uri = Uri.parse(SET_OFFSET_PROFUNDIDAD +":"+ s.toString());
+                mListener.onFragmentInteraction(uri);
+            }catch (Exception e){
+                //display.setText(e.getMessage()+"\n"+display.getText());
+            }
         }
     }
 

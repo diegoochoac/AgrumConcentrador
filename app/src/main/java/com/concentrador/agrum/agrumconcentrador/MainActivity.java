@@ -134,6 +134,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
 
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 
 
     //<editor-fold desc="Menu Normal">
@@ -158,12 +162,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     //</editor-fold>
 
 }

@@ -348,6 +348,7 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         alertdialogbuilder.setView(layout);
 
         listview.setAdapter(adapterTerreno);
+        Log.i("ParametrosFragment", "AlerDialogListTerreno numero:"+ adapterTerreno.getCount());
         final AlertDialog alert = alertdialogbuilder.create();
 
         editText.addTextChangedListener(new TextWatcher(){
@@ -357,6 +358,7 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
             }
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
+                Log.i("ParametrosFragment", "onTextChanged");
                 String text = editText.getText().toString().toLowerCase().trim();
 
                 switch (stateClick){
@@ -453,7 +455,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
                     adapterTerreno = new TerrenoAdapter(thiscontext, R.layout.row, terrenoList);
                     AlerDialogListTerreno();
                 }
-
                 stateClick = 1;
                 break;
 

@@ -24,7 +24,7 @@ import com.j256.ormlite.dao.Dao;
 import java.sql.SQLException;
 import java.util.List;
 
-public class MenuFragment3 extends Fragment implements View.OnClickListener {
+public class MenuAdministrar extends Fragment implements View.OnClickListener {
 
     private DatabaseHelper databaseHelper = null;
     private Button BtnContratista, BtnUsuarios, BtnTerreno;
@@ -44,7 +44,7 @@ public class MenuFragment3 extends Fragment implements View.OnClickListener {
 
     Context thiscontext;
 
-    public MenuFragment3() {
+    public MenuAdministrar() {
         // Required empty public constructor
     }
 
