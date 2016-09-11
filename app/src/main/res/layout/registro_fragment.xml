@@ -202,9 +202,6 @@
                 android:textSize="@dimen/textSizeRegistroFragment"
                 android:textColor="#FFF"
                 android:id="@+id/btnIniciarRegistro" />
-        </RelativeLayout><![CDATA[
-
-        />
-    ]]>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

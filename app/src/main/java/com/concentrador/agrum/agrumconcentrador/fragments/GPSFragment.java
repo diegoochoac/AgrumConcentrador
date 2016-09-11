@@ -19,7 +19,7 @@ import com.concentrador.agrum.agrumconcentrador.R;
  */
 public class GPSFragment extends Fragment implements OnClickListener  {
 
-    private TextView txtGPSLatitud, txtGPSLongitud, txtGPSAltitud, txtGPSVelocidad, txtGPSPrecision, txtGPSDisplay;
+    private TextView txtGPSLatitud, txtGPSLongitud, txtGPSAltitud, txtGPSVelocidad, txtGPSPrecision, txtGPSDisplay,txtGPSSerial;;
     private Button btnGPSExterno;
 
     //Variables que se van hacia el MAINACTIVITY
@@ -127,7 +127,44 @@ public class GPSFragment extends Fragment implements OnClickListener  {
         super.onPause();
     }
 
+    //<editor-fold desc="Update Variables Visuales">
+    public void update(String nVelocidad)
+    {
+        txtGPSVelocidad.setText(nVelocidad);
+    }
 
+    public void update(String nLatitud,String nLongitud,String nAltitud,String nPrecision)
+    {
+        txtGPSLatitud.setText(nLatitud);
+        txtGPSLongitud.setText(nLongitud);
+        txtGPSAltitud.setText(nAltitud);
+        txtGPSPrecision.setText(nPrecision);
+    }
+
+    public void update(String nLatitud,String nLongitud,String nVelocidad,String nAltitud,String nPrecision)
+    {
+        txtGPSLatitud.setText(nLatitud);
+        txtGPSLongitud.setText(nLongitud);
+        txtGPSVelocidad.setText(nVelocidad);
+        txtGPSAltitud.setText(nAltitud);
+        txtGPSPrecision.setText(nPrecision);
+    }
+
+    public void updateMessage(String message)
+    {
+        if(contadorDisplay == 20) {
+            txtGPSDisplay.setText("");
+            contadorDisplay = 0;
+        }
+        txtGPSDisplay.setText(message+txtGPSDisplay.getText());
+        contadorDisplay++;
+    }
+
+    public void updateSerial(String msg)
+    {
+        txtGPSSerial.setText(msg);      //TODO VERIFICAR SI ESTA EN FUNCIONAMIENTO no creo que funcione
+    }
+    //</editor-fold>
 
     @Override
     public void onClick(View view) {

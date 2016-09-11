@@ -138,6 +138,34 @@ public class RegistroFragment extends Fragment implements OnClickListener{
     public void onPause() {
         super.onPause();
     }
+
+    //<editor-fold desc="Update Variables Visuales">
+    public void update(String nVelocidad,String nProfundidad,String nEstado,String nFecha)
+    {
+        txtRegistroVelocidad.setText(nVelocidad);
+        txtRegistroProfundidad.setText(nProfundidad);
+        txtRegistroEstado.setText(nEstado);
+        txtRegistroFecha.setText(nFecha);
+    }
+
+    public void updateProfundidad(String nProfundidad,String nFecha)
+    {
+        txtRegistroProfundidad.setText(nProfundidad);
+        txtRegistroFecha.setText(nFecha);
+    }
+
+    public void updateVelocidad(String nVelocidad,String nFecha)
+    {
+        txtRegistroVelocidad.setText(nVelocidad);
+        txtRegistroFecha.setText(nFecha);
+    }
+
+    public void updateEstado(String nEstado)
+    {
+        txtRegistroEstado.setText(nEstado);
+    }
+    //</editor-fold>
+
     @Override
     public void onClick(View view) {
         Uri uri = Uri.parse("");

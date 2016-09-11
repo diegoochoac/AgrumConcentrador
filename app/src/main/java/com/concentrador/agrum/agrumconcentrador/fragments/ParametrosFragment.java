@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -39,6 +40,7 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
     private DatabaseHelper databaseHelper = null;
 
     private TextView textViewHacienda, textViewSuerte, textViewContratista,textViewOperador;
+    private Button btnParametrosmaquina,btnRegistro;
 
     //BASE DE DATOS
     private DatabaseCrud database;
@@ -203,8 +205,13 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
                     }
                 });
         //</editor-fold>
-    }
 
+        btnParametrosmaquina = (Button) view.findViewById(R.id.btnParametrosMaquina);
+        btnParametrosmaquina.setOnClickListener(this);
+
+        btnRegistro = (Button) view.findViewById(R.id.btnRegistro);
+        btnRegistro.setOnClickListener(this);
+    }
 
     void AlerDialogListUsuario(){
         final AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(thiscontext);
@@ -410,7 +417,6 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
         alert.show();
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -500,7 +506,5 @@ public class ParametrosFragment extends Fragment implements OnClickListener{
 
         }
     }
-
-
 
 }

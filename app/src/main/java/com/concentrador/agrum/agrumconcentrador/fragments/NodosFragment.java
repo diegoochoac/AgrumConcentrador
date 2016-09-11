@@ -158,6 +158,19 @@ public class NodosFragment extends Fragment implements TextWatcher, OnClickListe
 
     }
 
+
+    //<editor-fold desc="Update Variables Visuales">
+    public void update(String nProfundidad,String nAngTractor,String nAngImplemento,String nDifAngulos,String nAngCero,String nAngMedicion)
+    {
+        txtNodosProfundidad.setText(nProfundidad);
+        txtNodosAngTractor.setText(nAngTractor);
+        txtNodosAngImplemento.setText(nAngImplemento);
+        txtNodosAngDiferencia.setText(nDifAngulos);
+        txtNodosAngCero.setText(nAngCero);
+        txtNodosAngMedicion.setText(nAngMedicion);
+    }
+    //</editor-fold>
+
     @Override
     public void onClick(View view) {
         Log.i("ParametrosFragment", "onClick");

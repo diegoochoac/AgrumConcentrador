@@ -21,4 +21,8 @@
     <string name="tab4">Gps</string>
     <string name="tab5">Registro</string>
 
+    <string name="tab6">Crear Contratista</string>
+    <string name="tab7">Crear Usuario</string>
+    <string name="tab8">Crear Terreno</string>
+
 </resources>
