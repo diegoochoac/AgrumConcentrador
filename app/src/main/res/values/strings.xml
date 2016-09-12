@@ -25,4 +25,9 @@
     <string name="tab7">Crear Usuario</string>
     <string name="tab8">Crear Terreno</string>
     <string name="tab9">Administrar</string>
+
+    <string name="menuLabor">LABOR</string>
+    <string name="menuEvento">EVENTO</string>
+    <string name="menuAdministrar">ADMINISTRAR</string>
+
 </resources>

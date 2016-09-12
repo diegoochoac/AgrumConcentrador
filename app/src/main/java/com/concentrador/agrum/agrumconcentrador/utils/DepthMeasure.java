@@ -64,7 +64,7 @@ public class DepthMeasure
             currentPos = 0;
     }
 
-    void addAnguloTractor(double ang)
+    public void addAnguloTractor(double ang)
     {
         int lastPosition = (currentPosAngulosTractor != 0)?currentPosAngulosTractor-1:SIZE_ANGLES-1;
         double angle_new = ang;
@@ -76,7 +76,7 @@ public class DepthMeasure
             currentPosAngulosTractor = 0;
     }
 
-    void addAnguloImplemento(double ang)
+    public void addAnguloImplemento(double ang)
     {
         int lastPosition = (currentPosAngulosImplemnto != 0)?currentPosAngulosImplemnto-1:SIZE_ANGLES-1;
         double angle_new = ang;
@@ -88,7 +88,7 @@ public class DepthMeasure
             currentPosAngulosImplemnto = 0;
     }
 
-    double getAnguloTractor()
+    public double getAnguloTractor()
     {
         double[] nAngulos = new double[SIZE_ANGLES];
         for (int i = 0; i < SIZE_ANGLES ; i++)
@@ -99,7 +99,7 @@ public class DepthMeasure
         return nAngulos[(SIZE_ANGLES)/2];
     }
 
-    double getAnguloImplemeneto()
+    public double getAnguloImplemeneto()
     {
         double[] nAngulos = new double[SIZE_ANGLES];
         for (int i = 0; i < SIZE_ANGLES ; i++)
@@ -110,7 +110,7 @@ public class DepthMeasure
         return nAngulos[(SIZE_ANGLES)/2];
     }
 
-    double getProfundidad()
+    public double getProfundidad()
     {
         double[] nProfundidades = new double[SIZE_PROFUNDIDADES];
         for (int i = 0; i < SIZE_PROFUNDIDADES ; i++)
