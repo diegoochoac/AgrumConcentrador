@@ -1,6 +1,6 @@
 package com.concentrador.agrum.agrumconcentrador.utils;
 
-import com.concentrador.agrum.agrumconcentrador.fragments.PagerAdapter;
+import com.concentrador.agrum.agrumconcentrador.fragments.PagerAdapterLabor;
 import java.util.Arrays;
 
 /**
@@ -183,7 +183,7 @@ public class DepthMeasure
         return profundidad;
     }
 
-    public void guardarProfundidad(PagerAdapter pagerAdapter)
+    public void guardarProfundidad(PagerAdapterLabor pagerAdapter)
     {
         calcularProfundidad();
 

@@ -1,5 +1,6 @@
 package com.concentrador.agrum.agrumconcentrador.fragments;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -9,8 +10,9 @@ import com.concentrador.agrum.agrumconcentrador.MainActivity;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class PagerAdapterLabor extends FragmentStatePagerAdapter {
     int mNumOfTabs;
 
     private MainActivity context;
@@ -21,16 +23,22 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     private RegistroFragment registroFragment;
     private MapaFragment mapaFragment;
 
+    private Context mContext;
+
     private boolean enableConsole;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+
+    public PagerAdapterLabor(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
+        mContext = context;
+
     }
 
-    public PagerAdapter(FragmentManager fm, MainActivity context) {
+    public PagerAdapterLabor(FragmentManager fm, MainActivity context) {
         super(fm);
         this.context = context;
+        mContext = context;
 
         parametrosFragment = null;
         nodosFragment = null;
@@ -38,9 +46,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         enableConsole = true;
     }
 
-    public PagerAdapter(FragmentManager fm, MainActivity context, int NumOfTabs) {
+    public PagerAdapterLabor(FragmentManager fm, MainActivity context, int NumOfTabs) {
         super(fm);
         this.context = context;
+        mContext = context;
         this.mNumOfTabs = NumOfTabs;
 
         parametrosFragment = null;
@@ -48,6 +57,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         registroFragment = null;
         enableConsole = true;
     }
+
 
     @Override
     public Fragment getItem(int position) {
@@ -69,17 +79,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 4:
                 RegistroFragment registrotab = new RegistroFragment();
                 return registrotab;
-
-            case 5:
-                MenuCrearContratista contratistatab = new MenuCrearContratista();
-                return contratistatab;
-
-            case 6:
-                MenuCrearUsuario usuariotab = new MenuCrearUsuario();
-                return usuariotab;
-            case 7:
-                MenuCrearTerreno terrenotab = new MenuCrearTerreno();
-                return terrenotab;
 
             default:
                 return null;

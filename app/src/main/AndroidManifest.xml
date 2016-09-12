@@ -21,10 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".NavigationViewActivity" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".NavigationViewActivity" ></activity>
 
     </application>
 

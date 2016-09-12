@@ -5,20 +5,15 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import com.concentrador.agrum.agrumconcentrador.R;
 import com.concentrador.agrum.agrumconcentrador.database.DatabaseCrud;
-import com.concentrador.agrum.agrumconcentrador.database.DatabaseHelper;
 import com.concentrador.agrum.agrumconcentrador.database.Terreno;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
-
-import java.sql.SQLException;
 
 public class MenuCrearTerreno extends Fragment implements OnClickListener{
 

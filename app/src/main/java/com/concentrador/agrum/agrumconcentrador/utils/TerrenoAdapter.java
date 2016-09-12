@@ -70,12 +70,12 @@ public class TerrenoAdapter extends ArrayAdapter<Terreno>{
             holder.zona.setText("Zona: "+obj.getZonaAdmi());
             holder.area.setText("Area: "+obj.getArea());
 
-            holder.codigo.setVisibility(view.VISIBLE);
-            holder.hacienda.setVisibility(view.VISIBLE);
-            holder.suerte.setVisibility(view.VISIBLE);
-            holder.variedad.setVisibility(view.VISIBLE);
-            holder.zona.setVisibility(view.VISIBLE);
-            holder.area.setVisibility(view.VISIBLE);
+            //holder.codigo.setVisibility(view.VISIBLE);
+            //holder.hacienda.setVisibility(view.VISIBLE);
+            //holder.suerte.setVisibility(view.VISIBLE);
+            //holder.variedad.setVisibility(view.VISIBLE);
+            //holder.zona.setVisibility(view.VISIBLE);
+            //holder.area.setVisibility(view.VISIBLE);
 
         }
         return view;
