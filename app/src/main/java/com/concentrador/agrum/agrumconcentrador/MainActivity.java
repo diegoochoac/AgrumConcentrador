@@ -1,6 +1,7 @@
 package com.concentrador.agrum.agrumconcentrador;
 
 
+import android.app.ActionBar;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,22 +14,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
+import com.concentrador.agrum.agrumconcentrador.fragments.EventosFragment;
 import com.concentrador.agrum.agrumconcentrador.fragments.GPSFragment;
+import com.concentrador.agrum.agrumconcentrador.fragments.MenuCrearContratista;
 import com.concentrador.agrum.agrumconcentrador.fragments.NodosFragment;
 import com.concentrador.agrum.agrumconcentrador.fragments.OnFragmentInteractionListener;
 import com.concentrador.agrum.agrumconcentrador.fragments.PagerAdapterAdministrar;
@@ -41,7 +39,6 @@ import com.concentrador.agrum.agrumconcentrador.utils.FileOperations;
 import com.concentrador.agrum.agrumconcentrador.utils.RegistrationParameters;
 import com.concentrador.agrum.agrumconcentrador.utils.ReporteProfundidad;
 import com.concentrador.agrum.agrumconcentrador.utils.UsbService;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
@@ -62,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private PagerAdapterLabor pagerAdapterLabor;
     private PagerAdapterAdministrar pagerAdapterAdministrar;
+    private TabLayout tabLayout;
 
     private UsbService usbService;
 
@@ -79,13 +77,15 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
         String menu_receiver = getIntent().getExtras().getString("Activity");
         switch (menu_receiver) {
             case "labor":
                 inicializarLabor();
                 break;
-            case "mantenimiento":
-                iniciarMantenimiento();
+            case "evento":
+                iniciarEvento();
                 break;
             case "administrar":
                 iniciarAdministrar();
@@ -99,11 +99,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     }
 
-
-
     private void inicializarLabor() {
         //Layout que carga los tabs fragment
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setVisibility(View.VISIBLE);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab1));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab2));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab3));
@@ -135,13 +133,20 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         });
     }
 
-    private void iniciarMantenimiento() {
+    private void iniciarEvento() {
+
+        Fragment fragment = null;
+        fragment = new EventosFragment();
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        trans.replace(R.id.main_layout, fragment);
+        trans.addToBackStack(null);
+        trans.commit();
 
     }
 
     private void iniciarAdministrar() {
         //Layout que carga los tabs fragment
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setVisibility(View.VISIBLE);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab6));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab7));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab8));
@@ -172,6 +177,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         });
     }
 
+
+
+
     public void loadPreferences()
     {
         parameters = new RegistrationParameters();
@@ -191,60 +199,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         reporte.setParametrosMachine(parameters.getParametrosMachine());
     }
 
-    public void updateGPS(double latitude,double longitude,double speed,double accuracy,double altitude)
-    {
-        DecimalFormat df = new DecimalFormat("0.00000");
-        DecimalFormat df1 = new DecimalFormat("0.0");
 
-        reporte.setLatitud(latitude);
-        reporte.setLongitud(longitude);
-        reporte.setVelocidad(speed);
-        reporte.setPrecision(accuracy);
-        reporte.setAltitud(altitude);
-
-        pagerAdapterLabor.updateGPS(df.format(latitude), df.format(longitude), df1.format(speed), df1.format(altitude), df1.format(accuracy));
-    }
-
-    public void updateGPS(double speed)
-    {
-        DecimalFormat df1 = new DecimalFormat("0.0");
-
-        reporte.setVelocidad(speed);
-    }
-
-    public void updateGPS(double latitude,double longitude,double accuracy,double altitude)
-    {
-        DecimalFormat df = new DecimalFormat("0.00000");
-        DecimalFormat df1 = new DecimalFormat("0.0");
-
-        reporte.setLatitud(latitude);
-        reporte.setLongitud(longitude);
-        reporte.setPrecision(accuracy);
-        reporte.setAltitud(altitude);
-
-        pagerAdapterLabor.updateGPS(df.format(latitude), df.format(longitude), df1.format(altitude), df1.format(accuracy));
-    }
 
     public RegistrationParameters getRegistrationParameters()
     {
         return parameters;
     }
 
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        setFilters();  // Start listening notifications from UsbService
-        startService(UsbService.class, usbConnection, null); // Start UsbService(if it was not started before) and Bind it
-    }
-
-    @Override
-    public void onPause()
-    {
-        super.onPause();
-        unregisterReceiver(mUsbReceiver);
-        unbindService(usbConnection);
-    }
 
 
     public void showToast(String msj)
@@ -515,6 +476,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     Handler handlerGuardar = new Handler();
     Handler handlerUsb = new Handler();
     public int contador = 0;
+
+    //<editor-fold desc="Runnables Hilos">
     private Runnable updateData = new Runnable(){
         public void run(){
             //System.out.println("Enviando dato: "+enviar+"  - "+gpsTablet);
@@ -570,14 +533,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
     };
 
-    public void sendSerial(String command){
-       /* if(usbService != null && enviarNodosFragment && usbService.isSerialPortConnected()) // if UsbService was correctly binded, Send data{
-        {
-            char ini = 0x02;
-            char fin = 0x03;
-            usbService.write(("" + ini + command + fin).getBytes());
-        }*/ //TODO: falta colocar el servicion USB
-    }
+
 
     private Runnable guardarReporte = new Runnable(){
         public void run(){
@@ -613,12 +569,21 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private Runnable revisarUSB = new Runnable(){
         public void run(){
-
             System.out.println("Revisando USB");
             pagerAdapterLabor.updateGPSConsole("Revisando USB"+(usbService != null)+"\n");
             handlerUsb.postDelayed(revisarUSB, 3000);
         }
     };
+    //</editor-fold>
+
+    public void sendSerial(String command){
+        if(usbService != null && enviarNodosFragment && usbService.isSerialPortConnected()) // if UsbService was correctly binded, Send data{
+        {
+            char ini = 0x02;
+            char fin = 0x03;
+            usbService.write(("" + ini + command + fin).getBytes());
+        }
+    }
 
     public void calcularProfundidad()
     {
@@ -627,6 +592,67 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         reporte.setProfundidad(medicionProfundidad.getProfundidad());
         pagerAdapterLabor.updateEstado(reporte.getEstado());
     }
+
+    public void updateGPS(double latitude,double longitude,double speed,double accuracy,double altitude)
+    {
+        DecimalFormat df = new DecimalFormat("0.00000");
+        DecimalFormat df1 = new DecimalFormat("0.0");
+
+        reporte.setLatitud(latitude);
+        reporte.setLongitud(longitude);
+        reporte.setVelocidad(speed);
+        reporte.setPrecision(accuracy);
+        reporte.setAltitud(altitude);
+
+        pagerAdapterLabor.updateGPS(df.format(latitude), df.format(longitude), df1.format(speed), df1.format(altitude), df1.format(accuracy));
+    }
+
+    public void updateGPS(double speed)
+    {
+        DecimalFormat df1 = new DecimalFormat("0.0");
+
+        reporte.setVelocidad(speed);
+    }
+
+    public void updateGPS(double latitude,double longitude,double accuracy,double altitude)
+    {
+        DecimalFormat df = new DecimalFormat("0.00000");
+        DecimalFormat df1 = new DecimalFormat("0.0");
+
+        reporte.setLatitud(latitude);
+        reporte.setLongitud(longitude);
+        reporte.setPrecision(accuracy);
+        reporte.setAltitud(altitude);
+
+        pagerAdapterLabor.updateGPS(df.format(latitude), df.format(longitude), df1.format(altitude), df1.format(accuracy));
+    }
+
+    //<editor-fold desc="Ciclo vida Activity">
+    @Override
+    public void onResume(){
+        Log.i("MainActivity", "onResume");
+        super.onResume();
+        setFilters();  // Start listening notifications from UsbService
+        startService(UsbService.class, usbConnection, null); // Start UsbService(if it was not started before) and Bind it
+    }
+
+    @Override
+    public void onPause() {
+        Log.i("MainActivity", "onPause");
+        super.onPause();
+        unregisterReceiver(mUsbReceiver);
+        unbindService(usbConnection);
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i("MainActivity", "onDestroy");
+        super.onDestroy();
+        //unregisterReceiver(mUsbReceiver); //TODO mirar
+        //unbindService(usbConnection);
+    }
+    //</editor-fold>
+
     @Override
     public void onFragmentInteraction(Uri uri) {
         String[] spl = uri.toString().split(":");
@@ -801,12 +827,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             //</editor-fold>
 
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.i("MainActivity", "onDestroy");
-        super.onDestroy();
     }
 
 }

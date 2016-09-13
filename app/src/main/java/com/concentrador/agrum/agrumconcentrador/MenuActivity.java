@@ -113,7 +113,7 @@ public class MenuActivity extends AppCompatActivity implements OnClickListener {
                 break;
             case R.id.LinearMantenimiento:
                 intent = new Intent(MenuActivity.this, MainActivity.class);
-                intent.putExtra("Activity", "mantenimiento");
+                intent.putExtra("Activity", "evento");
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;

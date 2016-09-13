@@ -24,6 +24,9 @@ public class DatabaseCrud {
     private Dao<Usuario, Integer> usuarioDao;
     private Dao<Trabajo,Integer> trabajoDao;
     private Dao<Terreno,Integer> terrenoDao;
+    private Dao<TipoEvento, Integer> tipoEventoDao;
+    private Dao<Evento, Integer> eventoDao;
+
     //private Dao<Medicion,Integer> medicionDao;
     private Dao<Contratista,Integer> contratistaDao;
 
@@ -330,5 +333,184 @@ public class DatabaseCrud {
 
     //</editor-fold>
 
+    //<editor-fold desc="CRUD Evento">
+    public int crearEvento(Evento nuevo){
+        try {
+            return eventoDao.create(nuevo);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int actualizarEvento(Evento actualizar)
+    {
+        try {
+            return eventoDao.update(actualizar);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int eliminarEvento(Evento eliminar)
+    {
+        try {
+            return eventoDao.delete(eliminar);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<Evento> obtenerEvento()
+    {
+        try {
+            return eventoDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Evento> obtenerEventoAutocompletar(String campo, String palabra){
+        try {
+            QueryBuilder<Evento, Integer> db= eventoDao.queryBuilder();
+            Where<Evento, Integer> where = db.where();
+            where.like(campo, palabra+"%");
+            return where.query();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public String composeJSONfromSQLiteEvento(){
+        List<Evento> listaNoSincronizados = null;
+        try {
+            listaNoSincronizados = eventoDao.queryBuilder().where().eq("updateState","No").query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(listaNoSincronizados);
+    }
+
+    public int dbSyncCountEvento() {
+        int count = 0;
+        try {
+            return (int) eventoDao.queryBuilder().where().eq("updateState","No").countOf();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public void updateSyncStatusEvento(String id, String status) {
+        try {
+            UpdateBuilder<Evento,Integer> actualizar = eventoDao.updateBuilder();
+            actualizar.where().eq("usuario_id",id);
+            actualizar.updateColumnValue("updateState",status);
+            actualizar.update();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="CRUD Evento">
+    public int crearTipoEvento(TipoEvento nuevo){
+        try {
+            return tipoEventoDao.create(nuevo);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int actualizarTipoEvento(TipoEvento actualizar)
+    {
+        try {
+            return tipoEventoDao.update(actualizar);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int eliminarEvento(TipoEvento eliminar)
+    {
+        try {
+            return tipoEventoDao.delete(eliminar);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<TipoEvento> obtenerTipoEvento()
+    {
+        try {
+            return tipoEventoDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<TipoEvento> obtenerTipoEventoAutocompletar(String campo, String palabra){
+        try {
+            QueryBuilder<TipoEvento, Integer> db= tipoEventoDao.queryBuilder();
+            Where<TipoEvento, Integer> where = db.where();
+            where.like(campo, palabra+"%");
+            return where.query();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public String composeJSONfromSQLiteTipoEvento(){
+        List<TipoEvento> listaNoSincronizados = null;
+        try {
+            listaNoSincronizados = tipoEventoDao.queryBuilder().where().eq("updateState","No").query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(listaNoSincronizados);
+    }
+
+    public int dbSyncCountTipoEvento() {
+        int count = 0;
+        try {
+            return (int) tipoEventoDao.queryBuilder().where().eq("updateState","No").countOf();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public void updateSyncStatusTipoEvento(String id, String status) {
+        try {
+            UpdateBuilder<TipoEvento,Integer> actualizar = tipoEventoDao.updateBuilder();
+            actualizar.where().eq("usuario_id",id);
+            actualizar.updateColumnValue("updateState",status);
+            actualizar.update();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //</editor-fold>
 
 }

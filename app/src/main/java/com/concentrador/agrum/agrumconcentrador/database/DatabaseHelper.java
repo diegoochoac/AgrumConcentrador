@@ -29,6 +29,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Contratista, Integer> contratistaDao;
     private Dao<Trabajo,Integer> trabajoDao;
     private Dao<Terreno,Integer> terrenoDao;
+    private Dao<TipoEvento, Integer> tipoEventoDao;
+    private Dao<Evento, Integer> eventoDao;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -48,6 +50,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(source,Contratista.class);
             TableUtils.createTable(source,Trabajo.class);
             TableUtils.createTable(source,Terreno.class);
+            TableUtils.createTable(source,TipoEvento.class);
+            TableUtils.createTable(source,Evento.class);
         }catch (SQLException ex) {
             Log.e(DatabaseHelper.class.getSimpleName(),"Imposible crear base de datos",ex);
             throw  new RuntimeException(ex);
@@ -70,6 +74,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(source,Contratista.class, true);
             TableUtils.dropTable(source,Trabajo.class, true);
             TableUtils.dropTable(source,Terreno.class, true);
+            TableUtils.dropTable(source,TipoEvento.class, true);
+            TableUtils.dropTable(source,Evento.class, true);
             onCreate(db, source);
         } catch (SQLException ex) {
             Log.e(DatabaseHelper.class.getSimpleName(),"Imposible actualizar base de datos",ex);
@@ -107,6 +113,23 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         return terrenoDao;
     }
+
+    public Dao<TipoEvento, Integer> getTipoEventoDao() throws SQLException {
+        if(tipoEventoDao==null){
+            tipoEventoDao = getDao(TipoEvento.class);
+        }
+        return tipoEventoDao;
+    }
+
+
+    public Dao<Evento, Integer> getEventoDao() throws SQLException {
+        if(eventoDao==null){
+            eventoDao = getDao(Evento.class);
+        }
+        return eventoDao;
+    }
+
+
     //</editor-fold>
 
 
